@@ -1,67 +1,50 @@
 [
   {
     "id": 1,
-    "timestamp": 1646109961671,
-    "producto": {
-      "id": 1,
-      "name": "Led Zeppelin IV",
-      "description": "Remera blanca",
-      "code": 34234234,
-      "stock": 3,
-      "price": 300,
-      "thumbnail": "https://images.backstreetmerch.com/images/products/bands/clothing/ledz/bsi_ledz127.png"
-    }
+    "timestamp": 1646243951947,
+    "producto": [
+      {
+        "id": 1,
+        "name": "Led Zeppelin IV",
+        "description": "Remera blanca",
+        "code": 34234234,
+        "stock": 3,
+        "price": 300,
+        "thumbnail": "https://images.backstreetmerch.com/images/products/bands/clothing/ledz/bsi_ledz127.png"
+      },
+      {
+        "id": 11,
+        "name": "ide uno",
+        "description": "agregando productos al carrito con id 1",
+        "code": 34234234,
+        "stock": 3,
+        "price": 300,
+        "thumbnail": "https://nadadenada.png"
+      },
+      {
+        "id": 2,
+        "name": "Led Zeppelin I",
+        "description": "Remera negra",
+        "code": 4565445,
+        "stock": 3,
+        "price": 300,
+        "thumbnail": "https://images.backstreetmerch.com/images/products/bands/clothing/ledz/bsi_ledz175.jpg"
+      }
+    ]
   },
   {
     "id": 2,
-    "timestamp": 1646110140109,
-    "producto": {
-      "id": 2,
-      "name": "Led Zeppelin I",
-      "description": "Remera negra",
-      "code": 4565445,
-      "stock": 3,
-      "price": 300,
-      "thumbnail": "https://images.backstreetmerch.com/images/products/bands/clothing/ledz/bsi_ledz175.jpg"
-    }
-  },
-  {
-    "id": 3,
-    "timestamp": 1646158183904,
-    "producto": {
-      "id": 9,
-      "name": "Prueba",
-      "description": "prueba",
-      "code": 34234234,
-      "stock": 3,
-      "price": 300,
-      "thumbnail": "https://nada.png"
-    }
-  },
-  {
-    "id": 4,
-    "timestamp": 1646162107720,
-    "producto": {
-      "id": 8,
-      "name": "Prueba",
-      "description": "prueba",
-      "code": 34234234,
-      "stock": 3,
-      "price": 300,
-      "thumbnail": "https://nada.png"
-    }
-  },
-  {
-    "id": 5,
-    "timestamp": 1646163311183,
-    "producto": {
-      "id": 10,
-      "name": "Pruebasss",
-      "description": "pruebasss",
-      "code": 34234234,
-      "stock": 3,
-      "price": 300,
-      "thumbnail": "https://nadaaaaaaa.png"
-    }
+    "timestamp": 1646243971148,
+    "producto": [
+      {
+        "id": 2,
+        "name": "Led Zeppelin I",
+        "description": "Remera negra",
+        "code": 4565445,
+        "stock": 3,
+        "price": 300,
+        "thumbnail": "https://images.backstreetmerch.com/images/products/bands/clothing/ledz/bsi_ledz175.jpg"
+      }
+    ]
   }
 ]

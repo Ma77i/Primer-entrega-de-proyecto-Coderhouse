@@ -12,6 +12,7 @@ class Carrito {
 
 
 
+// CREAR CARRITO
     async saveCart(prods) {
         const txt = await fs.readFile(this.path, 'utf-8');
         const data = JSON.parse(txt);
@@ -20,36 +21,69 @@ class Carrito {
         data.push({
             id: last.id +1,
             timestamp: Date.now(),
-            producto: prods
+            producto: [prods]
         })
-
         await fs.writeFile(this.path, JSON.stringify(data, null, 2), "utf8")
     }
 
 
+
+//OBTENER TODOS LOS PRODUCTOS
     async getAllCart() {
         const cart = await fs.readFile(this.path, 'utf-8')
         const allProds = JSON.parse(cart)
-        this.carro.push(allProds)
-        return this.carro[0]
+        this.carro = allProds
+        return this.carro
     }
 
 
+
+// AGREGAR PRODUCTO AL CARRITO
     async addToCart(id, prod) {
-        const p = await this.getAllCart()
-        const r = p.find(i => i.id == id);
-        //r.push({producto: prod})
-        r.producto.push(prod)
-        await fs.writeFile(this.path, JSON.stringify(r, null, 2))
-        return r
+        const pd = await this.getAllCart()
+        const rs = pd.find(i => i.id == id);
+        rs.producto.push(prod)
+        await fs.writeFile(this.path, JSON.stringify(this.carro, null, 2))
+        return rs
     }
 
 
+
+// BORRAR PRODUCTO DEL CARRITO
+    async deleteProd(id, idProd) {
+        const pd = await this.getAllCart()
+        const rs = pd.find(i => i.id == id);
+        rs.producto = rs.producto.filter(i => i.id != idProd);
+
+        await fs.writeFile(this.path, JSON.stringify(this.carro, null, 2))
+        return rs
+    }
+
+
+
+// BORRAR CARRITO
+    async deleteCart(id) {
+        const pd = await this.getAllCart()
+        const rs = pd.filter(i => i.id != id)
+        await fs.writeFile(this.path, JSON.stringify(rs, null, 2))
+        return rs
+    }
+
+
+
+//BORRAR TODOS LOS CARRITOS
+    async deleteAll(){
+        const rs = []
+        await fs.writeFile(this.path, JSON.stringify(this.carro, null, 2))
+        return rs
+    }
+
+
+// OBTENER CARRITO 
     async getById(id) {
         const cart = await this.getAllCart()
-        const result = cart.find(i=>i.id == id)
-        //console.log(result);
-        return result
+        const rs = cart.find(i=>i.id == id)
+        return rs
     }
 
 

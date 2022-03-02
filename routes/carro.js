@@ -1,6 +1,5 @@
 const express = require('express');
 const { Router } = express;
-const path = require('path');
 const Carrito = require('../controller/carrito.js')
 
 const router = Router();
@@ -8,41 +7,42 @@ const router = Router();
 
 
 
-
+// OBTENGO TODOS LOS CARRITOS
 router.get('/', async (req, res) => {
     const cart = await Carrito.getAllCart()
     res.status(200).send(cart)
-    console.log("Get Carrito");
 })
 
 
 
+// OBTENGO UN PRODUCTO
+router.get('/:id/productos', async (req, res) => {
+    const { id } = req.params
+    await Carrito.getAllCart()
+    const pd = await Carrito.getById(id)
+
+    res.status(200).send(pd)
+})
 
 
+
+// CREO CARRITO 
 router.post('/', async (req, res) => {
     await Carrito.saveCart(req.body)
     res.sendStatus(201)
-    console.log("Guardado en el carrito");
-    
 })
 
 
 
+// CREO UN PRODUCTO
 router.post('/:id/productos', async(req, res) => {
     const { body } = req
     const { id } = req.params;
 
-    const getId = await Carrito.getById(id)
-    console.log(getId)
-
-    if (!getId) {
-        res.status(404).send("not found")
-        return
-    }
-    
+    await Carrito.getAllCart()
     try {
-        await getId.addToCart(id, body)
-        res.status(201)
+        await Carrito.addToCart(id, body)
+        res.sendStatus(201)
     } catch (err) {
         if (err.message === "No existe") {
             res.sendStatus(404)
@@ -51,17 +51,31 @@ router.post('/:id/productos', async(req, res) => {
             res.sendStatus(500)
         }
     }
-    res.send(getId)
 })
 
 
 
+// BORRO UN CARRITO
+router.delete('/:id', async (req, res) => {
+    
+    const { id } = req.params
+    await Carrito.getAllCart()
+    await Carrito.deleteCart(id)
+    res.sendStatus(202)
+})
 
 
-router.get('/:id/productos', (req, res) => res.status(200))
+
+// BORRO UN PRODUCTO
+router.delete('/:id/productos/:product', async(req, res) => {
+    const { id, product } = req.params;
+    console.log(id, product);
+    await Carrito.getAllCart()
+    await Carrito.deleteProd(id, product)
+    res.sendStatus(202)
+})
 
 
-router.delete('/', (req, res) => res.status(200))
-router.delete('/', (req, res) => res.status(200))
+
 
 module.exports = router;
