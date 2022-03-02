@@ -1,6 +1,6 @@
 const express = require('express');
 const { Router } = express;
-const Carrito = require('../controller/carrito.js')
+const Carrito = require('../model/carrito.js')
 
 const router = Router();
 

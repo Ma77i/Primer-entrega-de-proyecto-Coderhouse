@@ -4,7 +4,7 @@ const { Router } = express
 
 const router = Router()
 
-const Contenedor = require(path.join(__dirname, "../controller/contenedor.js"));
+const Contenedor = require(path.join(__dirname, "../model/contenedor.js"));
 
 const products = new Contenedor(path.join(__dirname, "../database/data.json"))
 
