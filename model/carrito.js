@@ -38,11 +38,25 @@ class Carrito {
 
 
 
-// AGREGAR PRODUCTO AL CARRITO
-    async addToCart(id, prod) {
+// OBTENER CARRITO 
+    async getCart(id){
         const pd = await this.getAllCart()
         const rs = pd.find(i => i.id == id);
+        if (!rs) {
+            throw new Error("NO existe")
+
+        }
+        return rs
+    }
+
+
+
+// AGREGAR PRODUCTO AL CARRITO
+    async addToCart(id, prod) {
+        const rs = await this.getCart(id)
+
         rs.producto.push(prod)
+        
         await fs.writeFile(this.path, JSON.stringify(this.carro, null, 2))
         return rs
     }
@@ -51,10 +65,8 @@ class Carrito {
 
 // BORRAR PRODUCTO DEL CARRITO
     async deleteProd(id, idProd) {
-        const pd = await this.getAllCart()
-        const rs = pd.find(i => i.id == id);
+        const rs = await this.getCart(id)
         rs.producto = rs.producto.filter(i => i.id != idProd);
-
         await fs.writeFile(this.path, JSON.stringify(this.carro, null, 2))
         return rs
     }
@@ -77,17 +89,18 @@ class Carrito {
         await fs.writeFile(this.path, JSON.stringify(this.carro, null, 2))
         return rs
     }
-
-
-// OBTENER CARRITO 
-    async getById(id) {
-        const cart = await this.getAllCart()
-        const rs = cart.find(i=>i.id == id)
-        return rs
-    }
-
-
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 }
+
 
 module.exports = new Carrito()

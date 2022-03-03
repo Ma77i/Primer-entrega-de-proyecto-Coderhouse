@@ -20,15 +20,6 @@
         "stock": 3,
         "price": 300,
         "thumbnail": "https://nadadenada.png"
-      },
-      {
-        "id": 2,
-        "name": "Led Zeppelin I",
-        "description": "Remera negra",
-        "code": 4565445,
-        "stock": 3,
-        "price": 300,
-        "thumbnail": "https://images.backstreetmerch.com/images/products/bands/clothing/ledz/bsi_ledz175.jpg"
       }
     ]
   },
@@ -44,6 +35,30 @@
         "stock": 3,
         "price": 300,
         "thumbnail": "https://images.backstreetmerch.com/images/products/bands/clothing/ledz/bsi_ledz175.jpg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "timestamp": 1646328038346,
+    "producto": [
+      {
+        "id": 2,
+        "name": "Led Zeppelin I",
+        "description": "Remera negra",
+        "code": 4565445,
+        "stock": 3,
+        "price": 300,
+        "thumbnail": "https://images.backstreetmerch.com/images/products/bands/clothing/ledz/bsi_ledz175.jpg"
+      },
+      {
+        "id": 1,
+        "name": "aLsdrfsdfs",
+        "description": "Resdfsdfsra",
+        "code": 4565445,
+        "stock": 3,
+        "price": 300,
+        "thumbnail": "htasdasdasdcom/images/products/bands/clothing/ledz/bsi_ledz175.jpg"
       }
     ]
   }

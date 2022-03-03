@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
 
 
 
-// OBTENGO UN PRODUCTO
+// OBTENGO UN CARRITO
 router.get('/:id/productos', async (req, res) => {
     const { id } = req.params
     await Carrito.getAllCart()
-    const pd = await Carrito.getById(id)
+    const pd = await Carrito.getCart(id)
 
     res.status(200).send(pd)
 })
@@ -57,7 +57,6 @@ router.post('/:id/productos', async(req, res) => {
 
 // BORRO UN CARRITO
 router.delete('/:id', async (req, res) => {
-    
     const { id } = req.params
     await Carrito.getAllCart()
     await Carrito.deleteCart(id)
@@ -69,7 +68,6 @@ router.delete('/:id', async (req, res) => {
 // BORRO UN PRODUCTO
 router.delete('/:id/productos/:product', async(req, res) => {
     const { id, product } = req.params;
-    console.log(id, product);
     await Carrito.getAllCart()
     await Carrito.deleteProd(id, product)
     res.sendStatus(202)
